@@ -6,6 +6,48 @@ Base
 Apart from character creating CharMorph also has editing tools
 that helps to integrate new characters to CharMorph.
 
+Morphs
+------------
+  Morphs are the Lifeblood of all Character Creators, including Charmorph. 
+They work similarly to Shapekeys but support a destructive workflow
+Morphs are Created by exporting Shapekeys to external files instead of being stored in the mesh itself.
+
+Morph Level:
+
+:L1: Major Body Type: Each L1 Morph can have it's own set of L2/L3 Morphs
+:L2: Minor Morphs: This is where most of the morphs are and are the ones that make characters look more unique.
+:L3: Expression Morphs: This is for Facial Action Coding System (FACS) Shapekeys
+
+L2 Morphs:
+
+.. image:: images/CharmorphExportSingleMorph.png
+  :width: 144
+  :alt: Export Single Morph
+* Exports Morph as a numpy file with the ``.npy`` file extension
+
+Metadata:
+
+All L2/L3 Morphs must be listed without their extension in their respective ``morphs.json`` files in order to be recognized by the add-on.
+
+Syntax is simple for those accustomed to JSON.
+``{ "morph": "FILENAME"},``
+
+By default Morphs will be able to only go from 0 to 1 but can be overidden by this syntax
+``{ "morph": "FILENAME", "min": -1.0, "max": 1.0},``
+
+The UI sorts the morph into categories based on the first word of the morph without a seperator so in order to keep the UI Clean it's reccomended to follows this naming scheme.
+
+``CategoryName_Morph``
+
+For Example:
+
+``Chin_Mentalis_Portrusion``
+or ``Fantasy_No_Nose``
+
+Charmorph also has a UI Seperator to help keep things in the same category organized and less confusing to look at
+
+``{ "separator": true},``
+
 Rigging
 ------------
 While morphing, your character can sufficiently change proportions
@@ -13,7 +55,7 @@ so bone locations need to be adjusted too. In CharMorph this is
 implemented by binding bone locations to vertex groups.
 
 Each bone joint has a special vertex group named
-"joint_{bone name}_{head|tail}". Joint location is calculated as
+``joint_{bone name}_{head|tail}``. Joint location is calculated as
 weighted average of locations of vertices included in the group,
 optionally offseted by some constant location.
 These vertex groups can be created manually using Edit mode or

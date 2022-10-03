@@ -19,4 +19,6 @@ Contents
    Introduction
    History
    Creating A Character
+   Hair
+   Best Practices
    Character editing
