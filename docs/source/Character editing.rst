@@ -83,10 +83,10 @@ Other calculation methods:
 
 * **Current:**
   This method doesn't change vertices consisting vertex group, it only recalculates weights of
-  these vertices. It works well if there is not more then 4 vertices in current vertex group.
+  these vertices. It works well if there is not more than 4 vertices in current vertex group.
 
 * **n nearest joints:**
-  Takes vertex groups of n already calculated joints and mixes them to match goint location
+  Takes vertex groups of n already calculated joints and mixes them to match joint location
   as close as possible
 
 * **Nearest bone:**
